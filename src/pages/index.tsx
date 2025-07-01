@@ -90,6 +90,7 @@ export default function Home() {
             Lindy Videos
           </h1>
           <p className="text-sm text-neutral-400 mt-2 italic tracking-wider">
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             Dancing is a conversation — here's what was said
           </p>
         </div>
