@@ -20,7 +20,10 @@ export default function Navbar() {
             <div className="flex bg-neutral-900 border border-neutral-700 rounded-full p-1 text-sm font-playfair shadow-inner">
                 <Link
                     href="/"
-                    className={`px-4 py-1 rounded-full transition-all duration-300 ${currentPath === '/' ? 'bg-amber-400 text-neutral-900 font-playfair' : 'text-amber-300 hover:text-white'
+                    className={`px-4 py-1 rounded-full text-amber-300 relative 
+                        transition-transform duration-300 ease-in-out
+                        hover:scale-105 focus:scale-105
+                        will-change-transform ${currentPath === '/' ? 'bg-amber-400 text-neutral-900 font-playfair' : ''
                         }`}
                 >
                     Lindy Hop
