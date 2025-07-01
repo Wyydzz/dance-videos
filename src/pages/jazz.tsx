@@ -30,7 +30,7 @@ export default function JazzPage() {
                         (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
                     )
                     : [];
-                
+
                 // On extrait tous les mois uniques des vidéos au format "YYYY-MM"
                 const uniqueMonths = [
                     ...new Set(
@@ -50,7 +50,7 @@ export default function JazzPage() {
                 setSelectedMonth(uniqueMonths[0] || null); // Par défaut, on sélectionne le premier mois
             })
             .catch((err) => {
-                 // En cas d’erreur dans la requête, on affiche l’erreur et on vide la liste
+                // En cas d’erreur dans la requête, on affiche l’erreur et on vide la liste
                 console.error("Erreur fetch:", err);
                 setVideos([]);
             });
@@ -80,12 +80,16 @@ export default function JazzPage() {
 
             {/* Contenu principal de la page */}
 
-            <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-24 px-6 font-montserrat transition-colors duration-500">
+            {/* <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-24 px-6 font-montserrat transition-colors duration-500"> */}
+            <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-32 sm:pt-24 px-4 sm:px-6 font-montserrat transition-colors duration-500">
 
                 {/* Titre principal et sous-titre */}
 
                 <div className="text-center mb-10">
-                    <h1 className="inline-block px-6 py-2 border border-amber-400 rounded-xl text-amber-400 text-4xl font-playfair font-bold drop-shadow-md">
+                    {/* <h1 className="inline-block px-6 py-2 border border-amber-400 rounded-xl text-amber-400 text-4xl font-playfair font-bold drop-shadow-md">
+                        Jazz Videos
+                    </h1> */}
+                    <h1 className="block w-fit mx-auto px-4 sm:px-6 py-2 border border-amber-400 rounded-xl text-amber-400 text-3xl sm:text-4xl font-playfair font-bold drop-shadow-md">
                         Jazz Videos
                     </h1>
                     <p className="text-sm text-neutral-400 mt-2 italic tracking-wider">
@@ -97,13 +101,13 @@ export default function JazzPage() {
                 {/* Filtres par mois */}
                 <div className="flex flex-wrap justify-center gap-2 mb-10">
                     {months.map((month) => {
-                       
+
                         // Label lisible (ex : "March 2025")
                         const label = new Date(`${month}-01`).toLocaleDateString("en-US", {
                             month: "long",
                             year: "numeric",
                         });
-                        
+
                         // Vérifie si ce bouton est celui du mois actuellement sélectionné
                         const isActive = month === selectedMonth;
                         return (
@@ -122,7 +126,7 @@ export default function JazzPage() {
                     })}
                 </div>
 
-                 {/* === Grille des vidéos === */}
+                {/* === Grille des vidéos === */}
                 <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                     {videos
                         // Filtrage des vidéos en fonction du mois sélectionné
@@ -155,7 +159,7 @@ export default function JazzPage() {
                                             : "No date"}
                                     </p>
                                 </div>
-                                
+
                                 {/* Lecteur vidéo embarqué depuis Google Drive */}
                                 <div className="aspect-video rounded-xl overflow-hidden shadow-inner border border-neutral-700">
                                     <iframe
@@ -166,7 +170,7 @@ export default function JazzPage() {
                                         loading="lazy"
                                     />
                                 </div>
-                                
+
                                 {/* Notes/commentaires liés à la vidéo */}
                                 <p className="text-center text-sm text-neutral-400 font-serif leading-relaxed">
                                     {video.notes}
@@ -174,8 +178,8 @@ export default function JazzPage() {
                             </div>
                         ))}
                 </div>
-                
-                 {/* Message si aucune vidéo à afficher */}
+
+                {/* Message si aucune vidéo à afficher */}
                 {videos.length === 0 && (
                     <p className="text-center text-neutral-400 mt-10">
                         Aucune vidéo disponible.
