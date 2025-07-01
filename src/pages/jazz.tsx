@@ -86,9 +86,7 @@ export default function JazzPage() {
                 {/* Titre principal et sous-titre */}
 
                 <div className="text-center mb-10">
-                    {/* <h1 className="inline-block px-6 py-2 border border-amber-400 rounded-xl text-amber-400 text-4xl font-playfair font-bold drop-shadow-md">
-                        Jazz Videos
-                    </h1> */}
+                    
                     <h1 className="block w-fit mx-auto px-4 sm:px-6 py-2 border border-amber-400 rounded-xl text-amber-400 text-3xl sm:text-4xl font-playfair font-bold drop-shadow-md">
                         Jazz Videos
                     </h1>
