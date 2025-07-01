@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
-import { FaPersonBooth } from "react-icons/fa"
+
 
 type Video = {
   id: string;
@@ -101,8 +100,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {months.map((month) => {
 
-            // On sépare l’année et le mois (pas utilisé ici mais peut servir)
-            const [year, monthNum] = month.split("-");
+           
             // Label lisible (ex : "March 2025")
             const label = new Date(`${month}-01`).toLocaleDateString("en-US", {
               month: "long",
