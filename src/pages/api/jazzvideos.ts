@@ -12,19 +12,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const databaseId = process.env.NOTION_JAZZ_DATABASE_ID!;
     const response = await notion.databases.query({ database_id: databaseId })
+    
 
     const videos = response.results.map((page: any) => {
       const props = page.properties
+      
 
       // console.log("👉 Propriétés de la page Notion :", props)
 
 
+    //   return {
+    //     id: page.id,
+    //     title: props["Title"]?.rich_text[0]?.plain_text || "Sans titre",
+    //     date: props["Date"]?.date?.start || "",
+    //     videoUrl: props["Video Link"]?.title?.[0]?.plain_text || "",
+    //     notes: props["Important Steps"]?.rich_text[0]?.plain_text || "",
+    //   }
+    // })
       return {
         id: page.id,
-        title: props["Title"]?.rich_text[0]?.plain_text || "Sans titre",
-        date: props["Date"]?.date?.start || "",
-        videoUrl: props["Video Link"]?.title?.[0]?.plain_text || "",
-        notes: props["Important Steps"]?.rich_text[0]?.plain_text || "",
+        title: props["Title"]?.rich_text[0]?.plain_text ?? "Sans titre",
+        date: props["Date"]?.date?.start ?? "",
+        videoUrl: props["Video Link"]?.title?.[0]?.plain_text ?? "",
+        notes: props["Important Steps"]?.rich_text[0]?.plain_text ?? "",
       }
     })
     
