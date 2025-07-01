@@ -97,7 +97,9 @@ export default function Home() {
 
       {/* Contenu principal de la page */}
 
-      <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-24 px-6 font-montserrat transition-colors duration-500">
+      {/* <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-24 px-6 font-montserrat transition-colors duration-500"> */}
+      <main className="bg-neutral-900 text-neutral-100 min-h-screen pt-32 sm:pt-24 px-4 sm:px-6 font-montserrat transition-colors duration-500">
+
 
         {/* Titre principal et sous-titre */}
 
