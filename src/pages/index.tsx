@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
-import PasswordGate from "@/components/passwordgate";
 
 
 
