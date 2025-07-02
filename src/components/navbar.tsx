@@ -31,7 +31,7 @@ export default function Navbar() {
                 </Link> */}
                   <Link
                     href="/"
-                    className={`inline-flex items-center justify-center px-4 py-2 rounded-full text-amber-300 relative 
+                    className={`inline-flex items-center justify-center whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm text-amber-300 relative 
                         transition-transform duration-300 ease-in-out
                         hover:scale-105 focus:scale-105
                         will-change-transform
