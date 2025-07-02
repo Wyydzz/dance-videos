@@ -20,17 +20,8 @@ export default function Home() {
   // État pour savoir quel mois est actuellement sélectionné
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
 
-  // acces mot de passe
-  const [authorized, setAuthorized] = useState(false);
-
   // useEffect exécuté une seule fois au chargement du composant 
   useEffect(() => {
-
-    // accès mot de passe
-    const access = localStorage.getItem("accessGranted");
-    if (access === "true") {
-      setAuthorized(true);
-    }
 
     fetch("/api/videos")
       .then((res) => res.json())
@@ -67,10 +58,6 @@ export default function Home() {
         setVideos([]);
       });
   }, []);
-
-  if (!authorized) {
-    return <PasswordGate onAccess={() => setAuthorized(true)} />;
-  }
 
   // Fonction utilitaire qui transforme une URL Google Drive classique en URL intégrable (embed)
   function convertGoogleDriveUrlToEmbed(url: string) {
